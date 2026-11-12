@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Poor Man’s Guide to Watchmaking</title>
+<style>
+:root{--bg:#e6d8bd;--ink:#2e1f14;--card:#f3e9d3;--muted:#6b5238;--pink:#8c3b2a;--orange:#a9662a;--yellow:#c9a227;--teal:#5d7150;--blue:#5a4632;--purple:#7a4a3a;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#241a12;--ink:#f0e2c8;--card:#33261b;--muted:#cdb894}}
+:root[data-theme="dark"]{--bg:#241a12;--ink:#f0e2c8;--card:#33261b;--muted:#cdb894}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;background:var(--bg);color:var(--ink);font:18px/1.7 Georgia,'Times New Roman',serif}
+h1,h2,h3,nav,.tag,label,button,input,select,th{font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif}
+:focus-visible{outline:3px solid var(--yellow);outline-offset:3px}
+nav{position:sticky;top:0;z-index:10;display:flex;gap:6px;flex-wrap:wrap;justify-content:center;padding:10px;background:#2e1f14}
+nav a{color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:6px 12px;border-radius:99px}
+nav a:nth-child(1){background:var(--pink)}nav a:nth-child(2){background:var(--orange)}nav a:nth-child(3){background:var(--teal);color:#fff}nav a:nth-child(4){background:var(--blue)}nav a:nth-child(5){background:var(--purple)}nav a:nth-child(6){background:var(--yellow);color:#3a2d00}nav a:nth-child(7){background:#f3e9d3;color:#2e1f14}
+.hero{position:relative;overflow:hidden;text-align:center;padding:90px 20px 110px;color:#fff;background:linear-gradient(135deg,var(--pink),var(--orange) 40%,var(--purple))}
+.hero h1{font-size:clamp(38px,8vw,84px);line-height:1.02;margin:0 0 14px;text-shadow:3px 3px 0 rgba(46,31,20,.45)}
+.hero p{max-width:34ch;margin:0 auto;font-size:21px}
+.by{margin-top:22px;font-weight:700;background:var(--yellow);color:#3a2d00;display:inline-block;padding:6px 16px;border-radius:99px;font-family:'Trebuchet MS',sans-serif}
+.gear{position:absolute;opacity:.22;animation:spin 40s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.gear{animation:none}}
+main{max-width:880px;margin:0 auto;padding:30px 18px 60px}
+section{margin:46px 0;padding:28px clamp(18px,4vw,36px);border-radius:26px;background:var(--card);border:4px solid var(--ink);box-shadow:8px 8px 0 var(--c,var(--pink))}
+section h2{font-size:clamp(26px,5vw,38px);margin:0 0 14px;line-height:1.15}
+.tag{display:inline-block;background:var(--c,var(--pink));color:#fff;font-weight:800;padding:3px 14px;border-radius:99px;font-size:14px;margin-bottom:10px}
+.eq{margin:24px 0;padding:22px;text-align:center;border-radius:20px;color:#fff;font:700 clamp(18px,4vw,28px)/1.4 'Trebuchet MS',sans-serif;background:linear-gradient(120deg,var(--blue),var(--purple),var(--pink))}
+.eq small{display:block;font-weight:400;font-size:15px;margin-top:8px}
+.note{border-left:8px solid var(--yellow);background:rgba(201,162,39,.22);padding:10px 16px;border-radius:0 14px 14px 0;margin:16px 0}
+ul{padding-left:22px}li{margin:6px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin:14px 0}
+label{display:block;font-weight:700;font-size:14px}
+input,select{width:100%;font-size:16px;padding:9px 10px;margin-top:4px;border:3px solid var(--ink);border-radius:12px;background:var(--bg);color:var(--ink)}
+.out{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:18px 0}
+.out div{background:var(--c);color:#fff;border-radius:16px;padding:12px 14px;font-family:'Trebuchet MS',sans-serif}
+.out b{display:block;font-size:26px;line-height:1.2}.out span{font-size:13px}
+h3{margin:26px 0 4px;font-size:22px}
+.figs{display:flex;flex-wrap:wrap;gap:18px;justify-content:center;margin:20px 0}
+figure{margin:0;text-align:center;background:var(--bg);border:3px dashed var(--c);border-radius:18px;padding:14px;flex:1 1 240px;max-width:400px}
+figure.wide{max-width:100%;flex-basis:100%}
+figure img{max-width:100%;height:auto;background:#fff;border-radius:10px;padding:8px}
+figcaption{font:14px/1.4 'Trebuchet MS',sans-serif;color:var(--muted);margin-top:8px}
+#empty{display:none;text-align:center;font-weight:700}
+footer{text-align:center;padding:30px 18px;background:#2e1f14;color:#f0e2c8;font-family:'Trebuchet MS',sans-serif}
+</style>
+</head>
+<body>
+<nav aria-label="Chapters"><a href="#intro">Intro</a><a href="#equation">Equation</a><a href="#laser">1 · Laser</a><a href="#assemble">2 · Assemble</a><a href="#misc">3 · Misc</a><a href="#calc">Calculator</a><a href="#diagrams">Diagrams</a></nav>
+
+<header class="hero">
+<svg class="gear" style="left:-60px;top:-60px" width="260" height="260" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="30" fill="none" stroke="#fff" stroke-width="14" stroke-dasharray="9 6"/><circle cx="50" cy="50" r="12" fill="#fff"/></svg>
+<svg class="gear" style="right:-80px;bottom:-90px" width="340" height="340" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="30" fill="none" stroke="#fff" stroke-width="14" stroke-dasharray="9 6"/><circle cx="50" cy="50" r="12" fill="#fff"/></svg>
+<h1>The Poor Man’s Guide to Watchmaking</h1>
+<p>Watchmaking basics, ideas and pictures. Fun reading, enjoy!</p>
+<div class="by">By Steven Armen Medina</div>
+</header>
+
+<main>
+<section id="intro" style="--c:var(--orange)">
+<span class="tag" style="--c:var(--orange)">Introduction</span>
+<h2>Before you start</h2>
+<p>The last picture is a stereogram. Simply cross your eyes to put the two shapes together (research how to view stereograms). It shows a 3D-like picture in your mind of how the watch is made.</p>
+<p>This book explains watchmaking basics with equations and pictures. Learn the physics, not just for the poor man: watches are highly precise mechanisms, and you should know the equation below first by using your brain to calculate the poor man’s watch.</p>
+<p>If you can’t follow the equation below, I’m sorry, then you have no basis for making such a sophisticated mechanism from scratch. It’s an easy equation for equators, and watches are an intense piece of engineering.</p>
+</section>
+
+<section id="equation" style="--c:var(--blue)">
+<span class="tag" style="--c:var(--blue)">The founding equation</span>
+<h2>First off, these physics make a poor watch</h2>
+<p>All watches are made from the one equation below. Other books won’t explain this in its entirety. It is explained briefly because not everyone knows physics and high-end mathematical formulae.</p>
+<p>We have “T” = Time, multiplied by “T” time, divided by ^2 (squared), plus ^2 (squared), equals “T” time multiplied by “T” time.</p>
+<div class="eq">TT ÷ square + square = TT<small>“TT divided by square plus square equals TT”</small></div>
+<p>The whole movement, the mechanisms needed and how it’s put together for all watches is the above mathematical formula. Nice work!</p>
+<p>Now if you can draw out a watch blueprint with the above equation, you have a basic watch, a quartz movement as well, also automatic and windup. That is the founding equation used 100’s of years in the making of watchmaking.</p>
+<div class="note">To calculate, we have variational sequences possible.</div>
+</section>
+
+<section id="laser" style="--c:var(--teal)">
+<span class="tag" style="--c:var(--teal)">Method 1</span>
+<h2>Laser cutting parts, plastic watch parts?</h2>
+<p>(A little more physics: “Tether in advancement of the parts”.) Every part connects like a puzzle. A laser cutter for acrylic or thin metals is your easiest route to make watch parts. You can blueprint your own or use a blueprint already made. The calculation you use will show you need calculations to successfully make watch parts with a laser cutter.</p>
+<ul>
+<li>You need a good laser cutter with about <b>0.06 mm precision</b>.</li>
+<li>If you want a high-quality watch, go buy one. If you want a piece of crap just to tell the time, read this book. Lol.</li>
+<li>This is only about how the parts are made. You have to do your homework on the blueprints and assembly.</li>
+<li>You need a steady hand for the small parts and magnifying eyewear to see them.</li>
+<li>A very basic tool set for precision parts. You are making every part that is in or on the watch.</li>
+<li>You can buy cases, so you don’t need to cast metal, and you don’t need to cut glass. Use a case already made, plus a leather watch strap found just about anywhere, even in retail stores.</li>
+</ul>
+</section>
+
+<section id="assemble" style="--c:var(--pink)">
+<span class="tag" style="--c:var(--pink)">Method 2</span>
+<h2>Putting it together</h2>
+<p>Take the parts and assemble the factors by groups in consecutives of 50’s (physics again, because I cannot explain what I’m trying to teach with just words, as mathematics backs my word entirely). This is so you’re not wasting your time making a part that doesn’t fit.</p>
+<p>You can buy a watch for 5 or 10 bucks. Why make your own with 1,000’s of dollars? Because if you make one, you can make more and start a watch business all on your own. The whole watch business is in that one equation above.</p>
+</section>
+
+<section id="misc" style="--c:var(--purple)">
+<span class="tag" style="--c:var(--purple)">Method 3</span>
+<h2>How to make miscellaneous parts</h2>
+<p>Wood dials, melted metals for bands and cases, optical crystal for glasses. You need to know how to melt metals into molds, and have the right grinders, sanders, mills, lathes, presses and dies, plus machinery to make machinery. You also want a nice optical crystal glass cutting machine, and other tools for metal jewelry.</p>
+<p>Misc parts are not always needed, but it’s great to have them available to your liking.</p>
+</section>
+
+<section id="calc" style="--c:var(--yellow)">
+<span class="tag" style="--c:var(--blue)">Parts machining calculator</span>
+<h2>Speeds, feeds and fit</h2>
+<p>For mills and lathes. Pick a material, enter your tool and cut, and get spindle speed and feed rate.</p>
+<div class="grid">
+<label>Material<select id="mat"><option value="200">Acrylic / plastic</option><option value="150">Wood</option><option value="250" selected>Aluminum</option><option value="100">Brass / bronze</option><option value="60">Mild steel</option><option value="35">Stainless steel</option></select></label>
+<label>Tool diameter (mm)<input id="dia" type="number" min="0.1" step="0.1" value="3"></label>
+<label>Flutes (lathe: 1)<input id="fl" type="number" min="1" step="1" value="2"></label>
+<label>Feed per tooth (mm)<input id="fz" type="number" min="0.001" step="0.005" value="0.02"></label>
+<label>Depth of cut (mm)<input id="ap" type="number" min="0.01" step="0.05" value="0.3"></label>
+<label>Width of cut (mm)<input id="ae" type="number" min="0.01" step="0.1" value="1.5"></label>
+<label>Cut length (mm)<input id="len" type="number" min="1" step="1" value="40"></label>
+<label>Parts in batch<input id="qty" type="number" min="1" step="1" value="50"></label>
+</div>
+<div class="out" aria-live="polite">
+<div style="--c:var(--pink)"><b id="rpm">–</b><span>Spindle speed (RPM)</span></div>
+<div style="--c:var(--blue)"><b id="feed">–</b><span>Feed rate (mm/min)</span></div>
+<div style="--c:var(--teal)"><b id="mrr">–</b><span>Material removal (mm³/min)</span></div>
+<div style="--c:var(--purple)"><b id="tm">–</b><span>Cut time per part (min)</span></div>
+<div style="--c:var(--orange)"><b id="bt">–</b><span>Batch cut time (min)</span></div>
+</div>
+<p style="font-size:15px">RPM = cutting speed × 1000 ÷ (π × diameter). Feed = RPM × flutes × feed per tooth. Cutting speeds are rough starting values; check your tool maker’s data and start gently on tiny parts.</p>
+<h3>Tolerance check</h3>
+<div class="grid">
+<label>Nominal size (mm)<input id="nom" type="number" step="0.01" value="5"></label>
+<label>Machine precision ± (mm)<input id="tol" type="number" min="0" step="0.01" value="0.06"></label>
+</div>
+<div class="out"><div style="--c:var(--pink)"><b id="mn">–</b><span>Smallest part (mm)</span></div><div style="--c:var(--blue)"><b id="mx">–</b><span>Largest part (mm)</span></div><div style="--c:var(--teal)"><b id="cl">–</b><span>Clearance to allow (mm)</span></div></div>
+<p style="font-size:15px">Clearance is the worst case when a shaft and a hole each vary by ±precision (2 × 2 × tolerance).</p>
+</section>
+
+<section id="diagrams" style="--c:var(--teal)">
+<span class="tag" style="--c:var(--teal)">Method 4 · Diagram search</span>
+<h2>Using precision scissors to cut parts</h2>
+<p>Follow diagrams with stickers on the thin metal pieces. Using the hand and eye you can cut parts, but it is very rare in watchmaking to use precision scissors to cut hour, minute and second hands successfully. This is where your magnifying eyewear comes in, and your steady hand.</p>
+<label>Search the diagrams<input id="q" type="search" placeholder="Try: hands, squares, ovals, stereogram"></label>
+<div class="figs" id="figs">
+<figure style="--c:var(--pink)" data-k="hands hour minute second movement rings circles scissors"><img src="data:image/png;base64,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" width="449" height="340" alt="Concentric rings with lines for the second, minute and hour hands"><figcaption>Diagram 1: the second, minute and hour hands hooked onto the movement within the movement. A very basic setup.</figcaption></figure>
+<figure style="--c:var(--blue)" data-k="squares movement square combination keys"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAc8AAAEhAQAAAAAxTRZ0AAACeElEQVR42u2bQW7bMBBFh7LRemedoPZBilZHyTG6CFAWyMGCnETpqstkpwCqmIUkVw5nhuS4sJric2s9m/rz/2howy6QcYWKzAsoUKC22A3paw6BWQMU/ifQJzva2dFeRb8GeXn9Xh+0Tx1UNNSaz/V7fTYV54aIiHbKVV5CD0RE9NLI6L244S6tlIR+vE8o1coyfRmV8kVOHFE3vnZnsf/eExH9PpaYeK7rLRERPZaYeEY3bbK4ops+acUdVHRSii1uHfS8jkqFo6XByErtWBMvUFmpLWviZYNRYtCmepMUgyrd1qQYONbE528oxqBLolIMfEYfFmLQ9Bkt/Btb3OOQgY5KZcUg0n1U6sWnTRyhrFKsE+NqJxqGahQmBqyJGZSJQcWZmLNn+mkgOzuKAWtiFo1j4LvcgSCOQZ+LRsVt8seQPZ0XlzNxpT4qfmozgYS+UaoumZvOleJMLKLnSnFOlKe1ZAyUQW8ZA87ECrqMAedEbbxMxKBKD7MPgolVdCqu59upPg9/tg/wk1K/WBMnpvCTUkw7TQ3wf5Typegcg53h2DDF4C42cRI9xaAtP6zsvXL0/R7U1QtcxhFp49c5DtZ2dO/tG761o5vWLtPhAoU7O/rhoroe3jisAH1a5XuJzo72ZrSxbzhqpwUbDma0tm84mgny0WgmuIolopkgH41mgut42D+7aVWlaLNK6I52tF5lwzs7ul1lw5UddXMT78o37Ne4V6BAgQIFChQoUKBAgQIFCvQ9otuSix/dfGqHwkAvRE8/GQ2QCeh7RH+4xdpCJqD256sLUBgoUKBAgQIFChTo/4fif5JA/x7q8C95oECvi74CG6UUJQ1p89MAAAAASUVORK5CYII=" width="463" height="289" alt="A large square joined by lines to a small square within a square"><figcaption>Diagram 2: the combination squares (right) within the square into the movement of picture one (left). One of the “KEYS”.</figcaption></figure>
+<figure style="--c:var(--teal)" data-k="ovals physics movement moving parts eyes"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAdsAAADkAQAAAAD4WrNVAAAIEUlEQVR42u1aO3LjOBB9gFiSAtdaydQ6mFoz3NDBBJMtj6IjTDiZcBQdYY/AvYGPQGcTcrccsFQ0sQHx6QYaFGWnZjAj0Wp0v/48/FpZvPt50fjA8yn8KfwpfE3YKmWWfvyP2rPvitazArBQ3y81cN8X6vkFAPZF2bcawL/MNBueaX5xsoWnBQDs4osO9HP6V/aMSAenwrkt7HFj4z6+iZjf/IdGhnx2/79KmP3IBbvHIHESNPuRcREVv+Y/jJon5EPnvmaWRYcNAJS1BsCjJAwAj7aff5UKd7PKqQB6dH7uiGVR2Lgg9GRo8oTXxLIgPAX4MujWy/TRsiA8hncd8JcIOWhRaahege/zp6/AcxYoC+xc5bWk8KJZUckmUzxEpH2wLGhu/chAhynTPAA+A3+LHyOSR6LllPsrWmOCd5zmCTj64bZAm2pucRc+HzFyzQMNrslzjEYg/NaHqucMcZ/nF2OcEzO7p9x1wJBYPWJDaNJ4WNqX2VP8611WlQMq8q0J7vaYOMKMgh5Znt9Tsy0UVWSQcH+Hmnzbe1jaRWpLf3tMY9WyF9sQK+f9e15/PFYTr9LJSTmzBxzA7OqZ4olPaRc4WNpFimJClcXqjn75xWfJjpO1jgnownxIGLwlmE3CPMn3ntHD5JnIYTbJHN/wibZnhl0A75N5rF2aFCdekOmktaO5nczKhyTMikNW3idz0TymrMM4kPHSBOxmn8yaRx4poIpM477ToOOhIaEa0mlVsyyxDNUrcKxtNLvLJnTmQY6qhbI9TtFhKuUsw3OkZtW8xX7OEj0nWPaMjAoIqjfgwftEA0CbrQObqWTIK1CHOskQZgsd/qUFrJ3m6VZDXLmxLOkUg7wB1Fx2GoBNMwrYM5dpBvkOtJ4naQFDeKetGOQnAM0YB61T0SqxIzzP87B1cNiQT2wTzQtKcG7+7RSp51SzYtl5oJP8HQAcrDd7kDDT5K4pETxFIBpAr3JZM9AyotzXxrzRhY1GI385uxmvCpo7yexRSnNrAgm3XmmVy9Zial987unwbytpnuhihkA+hrnPDSFsSg5i3M5weycVkiRbRVhre7KKV5T7SOLMSXLINe+lurgAD9QNa7aDlQC5ccI2rwugii7ucsjOjTdtRA1fQEADk7QZ0jGA7Z5yn8+D8UbNr2SN6UM1inu4OFuF0m7J0qRXc6hGWU8nFMv29p17HSDveR5oYFCiZ3sB8tOtmm3CfeS1Lg3QZB8buvStnOZe1pgy21uyGltl9lSAbGbhasHFkUg4ZH3bIUtLIYcROvnHSe4Q7mPqxaORQzLIJY1yu8psldB9fLka8zmHDF1g3nTWtkYIipb5L3ME4b5bkmRIuS+W7ArMOuU+Pktef2zKfX5Yc6UUi5ChpeVMPnPmkG+IcwfpdHClcCNBXiHcJ3RP3q/QXEl0j2a12c8iZOjyQaehanQpfZprR7EC9633dk73Nwg/F+pWr4vy5t1H1CXIq4RLkFcJ9yWqWiN8LkBeIyzR/WrhSwnyytxuPyCsPnIVsf2I8EMBySrhY2Ea1SuiXLwZ0SuivH333Y1M91i3uxkKkGdhtcxhz1i4DKKLY35O6ve8SryawCO9iigSQXktrK8TwZWZe5n73i/cXBNe2AK/AXtbnPrLKwPlIH8r26TfR/erMJfofo3wTPemlL0ahX3C4Olel7NXF6Ohl+h+jdkz3belSOqrdK/KkVw83inTfTC7Li6Cfs0O6Ur+1O/kvuCwsbADdtxnpFD2+ormJe7zmg/yX/Z+qdtIDu2qKweI1yAvme3pvkZpA6NL1W4OAfJYmrH14rbmKOyw+NlQVaBWT/eyQw9esxE5KqzubWn3opeI4AEobXJRz8JaqrkJ36KfTWEa1Ne5ryoSugaUfCxPtvltgdWXcvtuKY/CXrKX6/WpfMY0hGHN8rpPCYP3cds/iCy0QdHZ5JykWYQsDt7FEUaRSALkJv97Wy1ugWmApsJiRxfKhh7m1DZP7b1bDdFzXXKqey+d+7L7gq5wvHPhlWjkFV7hNoFt8/dZfrpLqPk8rF2k+ypLMX8JJd3v0YNs6++I8kulTiZ+TvcqyxJ3j6TF5E1PNsZCCoiXXYZfnKdXte6icjbebDLIqnydGq5f51VvciOHKfFDncRyInc3WXK/JsR1SGI5sqsQu7zU3SeBHpw6dxVhUmbc8xVGnzBFE4WT/HvL55jXJP9IqJIU65G00SStApa1CvBLXzyn1KSM5dW8YaQ8LK/um+TSvSJm86vtMbxe15hhpsQ5Kp2MfzFYB2p2Yw2HrNNAj6wsamp2R70LZL1WhTYYZG0cE7DPql9uwPFXyD0lgj+zdYghKfsrgNIu/wZKBH9npdKwtraKCWvScnPG5pyF+inuSK2JFJW23EzALu8FXGy0MkHXBfiSbw22sQWF7tPSJqUO+CF0xWGhuSw2KZ2hfggTUOv55j96YJPEbgJ2QqOV3FCnPVe4BL0Avxthxr4D7AFzT+gx0Ryayzrgp9iOB5SbCH27mYHqxPOJSFR5+2LrKxs7qaFu5qb5ecy6Lp9mAnkDvsinnHfSGRVvIuyBI+RTF1/xm7xhw7UvzshOK9tUk8bJmSxvbpDtAJxGCDSyojV3AKB67k5J9UkSvtam6oy7lztcAn8qW+4pZoi62Aj94hN6N6y7GKGN0F/9h+9Y+5AWbIXiHuyqZj/771YrpvPKH/N/P/Ees2eXrXYX8HJL2/kSZmACTrjhqUoYbnTY7c+n8Kfwp7Dw/A8iRiKJh+Ls7wAAAABJRU5ErkJggg==" width="475" height="228" alt="Two ovals crossed by a diagonal line"><figcaption>Diagram 3: the surrounding physics to enact the movement into the watch’s basic moving parts.</figcaption></figure>
+<figure style="--c:var(--purple)" data-k="nested squares rectangles spiral movement keys"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAWMAAAEbAQAAAAAnyNjgAAACMklEQVR42u3azXHbMBCGYQDkjHgLOzA6MUtxJ0YNqYjuwCVAHSA32kNzc8hY4q+IN6NDqCxPlvQIQ30AFgDHVkz+dXaGXKpV31+XRva+UPQm1aTtn99/yLBHCxmsiIhIzGp7EPIre5RJh3RCOlqiW0MSNMUowVe5dSUjpgR38mkqoDtTA52MBzqaBujWBKCDBX0pV5Shh0vceT1fIV0j/YJ0INqO6sn09UoxGbXosioU0RXSNdIe6HQZrzk6XuPO0K0F1V6CA3pYWUmeN4tJj9adDumEdES6RToQLWgtHuDKXSPtkW7W9JtdXtU8FJdfHnK0Q7pEukK6RtoD/T6Je0+3aAwGuxHnj8UUjuPlLKPtAe01e6Q7pBPSEekW6UC0oN36gHQ/Ha9TfV5OYY/ODQ3SgWiL8nZIl0hXSNdIe6DjPO6pPk2m8Lw87LQdLBhVsvzQZe12M3SPzq4d0gnpiHS7p78u86xZloebbQs6zw9I9/BZgUe6QToQbdF9O6TL/bfkehcVartG2gMdV+Le1i0ag8GCcSKrn7j88nBD9+jpVod0Qjoibf4P7ZFukA5EW3TfLrcMzN//spdy4DJ3D39+t8svD3Fb+8cZVR7phmgbtvty9hBKZ7Fq1apVq76LLrP2JZrg8fqyuB7Lz5rgXyT4MZ4LJ03wwH35JJrJY/Tlr+UCddIED9mXz6KZPEZfvm3tGgtN8GB9KZqJ6jtqKzn/qft9TtEE/+0KYUUzUX0c/RsPncwHvwjR1AAAAABJRU5ErkJggg==" width="355" height="283" alt="Nested rectangles with a diagonal line"><figcaption>Diagram 4: nested squares, another basic moving-parts “key”.</figcaption></figure>
+<figure class="wide" style="--c:var(--orange)" data-k="stereogram 3d cross eyes shapes final last picture"><img src="data:image/png;base64,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" width="690" height="336" alt="Stereogram: two shapes with eye dots and arrows between them"><figcaption>Diagram 5, the stereogram: cross your eyes to put the two shapes together and see the watch in 3D.</figcaption></figure>
+</div>
+<p id="empty">No diagrams match. Try “hands”, “squares” or “stereogram”.</p>
+<div class="note">These pictures are like “keys” on a map for your watch basics. They shouldn’t be used as blueprints. They are just the “KEYS”.</div>
+</section>
+</main>
+<footer><b>The Poor Man’s Guide to Watchmaking</b> by Steven Armen Medina</footer>
+
+<script>
+const $=i=>document.getElementById(i),n=i=>parseFloat($(i).value)||0,f=(v,d=1)=>isFinite(v)?v.toLocaleString(undefined,{maximumFractionDigits:d}):'–';
+function calc(){
+const rpm=n('mat')*1000/(Math.PI*Math.max(n('dia'),.01)),feed=rpm*Math.max(n('fl'),1)*n('fz'),mrr=n('ap')*n('ae')*feed,t=feed>0?n('len')/feed:0;
+$('rpm').textContent=f(rpm,0);$('feed').textContent=f(feed);$('mrr').textContent=f(mrr,0);$('tm').textContent=f(t,2);$('bt').textContent=f(t*n('qty'),1);
+const nm=n('nom'),tl=n('tol');$('mn').textContent=f(nm-tl,3);$('mx').textContent=f(nm+tl,3);$('cl').textContent=f(4*tl,3);}
+document.querySelectorAll('#calc input,#calc select').forEach(e=>e.addEventListener('input',calc));calc();
+$('q').addEventListener('input',e=>{const q=e.target.value.toLowerCase().trim().split(/\s+/).filter(Boolean);let c=0;
+document.querySelectorAll('#figs figure').forEach(g=>{const t=(g.dataset.k+' '+g.textContent).toLowerCase(),ok=q.every(w=>t.includes(w));g.style.display=ok?'':'none';if(ok)c++;});
+$('empty').style.display=c?'none':'block';});
+</script>
+</body>
+</html>
